@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proposal</title>
+    <style>
+        /* Modern Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', 'Nunito', system-ui, -apple-system, sans-serif;
+            text-align: center;
+            background-image: url("bg/haha.png");
+            background-size: cover; /* Added so initial background fits screen perfectly */
+            background-position: center;
+            background-attachment: fixed;
+            transition: background-image 0.3s ease-in-out;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Responsive Nav Bar - Upgraded to Glassmorphism */
+        nav {
+            border-radius: 20px;
+            width: 100%;
+            max-width: 600px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Image Container */
+        .img-container {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1 / 1;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Button Positioning Box */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+            justify-content: center;
+        }
+
+        /* Responsive Custom Glass Buttons */
+        .choice-btn {
+            flex: 1;
+            font-family: 'Quicksand', 'Nunito', system-ui, -apple-system, sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.1s ease, background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .choice-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(122, 34, 207, 0.4);
+            color: white;
+        }
+
+        .choice-btn:active {
+            transform: scale(0.95);
+        }
+
+        .reset-btn {
+            position: absolute;
+            bottom: 20px;      /* Fixed: Changed from bottom: 20px to top: 20px so it's in the top corner */
+            right: 20px;
+            flex: none;
+            width: auto;
+            padding: 8px 16px;
+            font-size: 1rem !important;
+            border-radius: 10px;
+        }
+
+        .reset-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 15px 0 rgba(220, 53, 69, 0.4);
+        }
+
+        @media (max-width: 360px) {
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2 id="question">Do you Like me?</h2>
+    </nav>
+
+    <div class="img-container">
+        <img id="cat1" src="icons/soapy.jpg" alt="cat query">
+    </div>
+
+    <div class="btn-group">
+        <button class="choice-btn" onclick="yes()">Yes</button>
+        <button class="choice-btn" id="no_button" onclick="handleClickNo()">No</button>
+        <button id="reset_button" class="choice-btn reset-btn" onclick="reset()">⟳</button>
+    </div>
+
+    <script>
+        // Preload backgrounds too so they change instantly
+        new Image().src = "icons/bleh.jpg";
+        new Image().src = "icons/soapy.jpg";
+        new Image().src = "icons/ples.jpeg";
+        new Image().src = "bg/yey.png";
+        new Image().src = "bg/naw.png";
+
+        const question = document.getElementById("question");
+        const image = document.getElementById("cat1");
+        const no_button = document.getElementById("no_button");
+
+        let padding_no = 12;
+        let font_no = 24;
+
+        function yes() {
+            // Fixed paths: Added the "icons/" folder prefix so it matches your files!
+            image.src = "icons/bleh.jpg"; 
+            question.textContent = "I knew it";
+            document.body.style.backgroundImage = "url('bg/yey.png')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
+            document.body.style.backgroundAttachment = "fixed";
+        }
+
+        function handleClickNo() {
+            // Fixed paths: Added the "icons/" folder prefix!
+            image.src = "icons/ples.jpeg"; 
+            question.textContent = "Pleaseeee?!";
+            document.body.style.backgroundImage = "url('bg/naw.png')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
+            document.body.style.backgroundAttachment = "fixed";
+
+            if (padding_no > 0) {
+                padding_no = padding_no - 2;
+                no_button.style.padding = padding_no + "px";
+            }
+
+            if (font_no > 0) {
+                font_no = font_no - 4;
+                no_button.style.fontSize = font_no + "px";
+            }
+
+            if (font_no <= 0) {
+                no_button.style.display = "none";
+            }
+        }
+
+        function reset() {
+            question.textContent = "Do you Like me?";
+            // Fixed paths: Restored folder prefix here too
+            image.src = "icons/soapy.jpg"; 
+
+            document.body.style.backgroundImage = "url('bg/haha.png')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
+            document.body.style.backgroundAttachment = "fixed";
+
+            padding_no = 12;
+            font_no = 24;
+
+            no_button.style.display = "inline-block";
+            no_button.style.padding = padding_no + "px";
+            no_button.style.fontSize = font_no + "px";
+        }
+    </script>
+
+</body>
+</html>
