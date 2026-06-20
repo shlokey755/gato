@@ -150,6 +150,12 @@
         new Image().src = "bg/yey.png";
         new Image().src = "bg/naw.png";
 
+        new Image().src = "icons/first.jpeg";
+        new Image().src = "icons/sec.jpeg";
+        new Image().src = "icons/third.jpeg";
+        new Image().src = "icons/seclast.jpeg";
+        new Image().src = "icons/last.jpeg";
+
         const question = document.getElementById("question");
         const image = document.getElementById("cat1");
         const no_button = document.getElementById("no_button");
@@ -167,14 +173,30 @@
             document.body.style.backgroundAttachment = "fixed";
         }
 
+       const sadImages = [
+            "icons/first.jpeg", // Click 1
+            "icons/sec.jpeg", // Click 2
+            "icons/ples.jpeg", // Click 3
+            "icons/third.jpeg", // Click 4
+            "icons/seclast.jpeg", // Click 5
+            "icons/last.jpeg" // Click 6 (Disappear)
+        ];
+        let clickCount = 0; // Tracks which click we are on
+
         function handleClickNo() {
-            // Fixed paths: Added the "icons/" folder prefix!
-            image.src = "icons/ples.jpeg"; 
             question.textContent = "Pleaseeee?!";
             document.body.style.backgroundImage = "url('bg/naw.png')";
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundPosition = "center";
             document.body.style.backgroundAttachment = "fixed";
+
+            // --- NEW DYNAMIC IMAGE LOGIC ---
+            // Change image based on the current click count, up to the last image
+            if (clickCount < sadImages.length) {
+                image.src = sadImages[clickCount];
+                clickCount++; // Increase count by 1 for the next click
+            }
+            // --------------------------------
 
             if (padding_no > 0) {
                 padding_no = padding_no - 2;
