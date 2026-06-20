@@ -181,10 +181,20 @@
             "icons/seclast.jpeg", // Click 5
             "icons/last.jpeg" // Click 6 (Disappear)
         ];
+
+        const msg = [
+            "Why u click No?",
+            "You hate me?",
+            "Wow! 3 times is crazy.",
+            "Please! click Yes",
+            "AH! this no will kill me",
+            "I crying..."
+        ];
+        
         let clickCount = 0; // Tracks which click we are on
 
         function handleClickNo() {
-            question.textContent = "Pleaseeee?!";
+            
             document.body.style.backgroundImage = "url('bg/naw.png')";
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundPosition = "center";
@@ -194,6 +204,7 @@
             // Change image based on the current click count, up to the last image
             if (clickCount < sadImages.length) {
                 image.src = sadImages[clickCount];
+                question.textContent = msg[clickCount];
                 clickCount++; // Increase count by 1 for the next click
             }
             // --------------------------------
