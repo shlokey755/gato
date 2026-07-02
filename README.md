@@ -1,4 +1,4 @@
-# gato
+## gato
 <div style="font-family: sans-serif; line-height: 1.6; color: #333;">
   
   <!-- Floating Image -->
@@ -8,7 +8,7 @@
     <strong>Gato</strong>, an incredibly clever and tech-savvy feline, has officially conquered the digital world by building his very own website page. Tired of waiting for his humans to manage his online presence, he took matters into his own paws, batting at the keyboard and mastering code with surprising precision.
   </p>
   <p>
-    <a href="https://shlokey755.github.io/proposalgato/">Follow this link!!</a>
+    <a href="https://shlokey755.github.io/proposalgato/" style="display:block; text-align:center; border-width:4px;">Follow this link!!</a>
   </p>
   
   <p>
