@@ -8,13 +8,15 @@
     <strong>Gato</strong>, an incredibly clever and tech-savvy feline, has officially conquered the digital world by building his very own website page. Tired of waiting for his humans to manage his online presence, he took matters into his own paws, batting at the keyboard and mastering code with surprising precision.
   </p>
   <div align="center">
+    <hr> <vr>
     <table>
       <tr>
         <th> >>> </th>
         <td><a href="https://shlokey755.github.io/proposalgato/">ClickMe.link</a></td>
         <td> <<< </td>
       </tr>
-    </table>
+    </table> <vr>
+    <hr>
   </div>
   
   <p>
