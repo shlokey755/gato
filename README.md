@@ -10,7 +10,9 @@
   <p>
     <table>
       <tr>
-        <a href="https://shlokey755.github.io/proposalgato/">Follow this link!!</a>
+        <th> >>> </th>
+        <td><a href="https://shlokey755.github.io/proposalgato/">ClickMe.link</a></td>
+        <td> <<< </td>
       </tr>
     </table>
   </p>
